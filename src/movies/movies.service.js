@@ -27,13 +27,11 @@ async function list(is_showing) {
 }
 
 async function read(movie_id) {
-  return (
-    knex
-      .from(MOVIES_TABLE)
-      .select("*")
-      .where({ "movies.movie_id": movie_id })
-      .first()
-  );
+  return knex
+    .from(MOVIES_TABLE)
+    .select("*")
+    .where({ "movies.movie_id": movie_id })
+    .first();
 }
 
 module.exports = {

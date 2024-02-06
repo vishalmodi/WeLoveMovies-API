@@ -19,12 +19,9 @@ async function list(movie_id) {
   return knex
     .from(`${REVIEWS_TABLE} as r`)
     .join("critics as c", "c.critic_id", "r.critic_id")
-    .select(
-      "r.*",
-      "c.*"
-    )
+    .select("r.*", "c.*")
     .where({ movie_id })
-    .then(reviews => reviews.map(review => addCritic(review)));
+    .then((reviews) => reviews.map((review) => addCritic(review)));
 }
 
 async function read(review_id) {

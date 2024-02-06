@@ -34,13 +34,11 @@ async function onlyTheaterslist(movie_id) {
   return knex
     .from("theaters as t")
     .join("movies_theaters as mt", "mt.theater_id", "t.theater_id")
-    .select(
-      "t.*","mt.*"
-    )
-    .where({ "mt.movie_id": movie_id })
+    .select("t.*", "mt.*")
+    .where({ "mt.movie_id": movie_id });
 }
 
 module.exports = {
   list,
-  onlyTheaterslist
+  onlyTheaterslist,
 };
