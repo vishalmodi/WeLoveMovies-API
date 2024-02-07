@@ -7,7 +7,11 @@ const theatersRouter = require("./theaters/theaters.router");
 const reviewsRouter = require("./reviews/reviews.router");
 const cors = require("cors");
 
+// configure CORS
 app.use(cors())
+// Handle preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 app.use("/movies", moviesRouter);
