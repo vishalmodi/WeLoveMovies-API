@@ -20,7 +20,7 @@ async function list(movie_id) {
     .from(`${REVIEWS_TABLE} as r`)
     .join("critics as c", "c.critic_id", "r.critic_id")
     .select("r.*", "c.*")
-    .where({ movie_id })
+    .where({ "r.movie_id": movie_id })
     .then((reviews) => reviews.map((review) => addCritic(review)));
 }
 

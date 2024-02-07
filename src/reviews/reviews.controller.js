@@ -20,11 +20,8 @@ async function destroy(req, res) {
 
 async function list(req, resp) {
   const { movieId } = req.params;
-
-  if (movieId) {
-    const data = await service.list(movieId);
-    resp.json({ data });
-  }
+  const data = await service.list(movieId);
+  resp.json({ data });
 }
 
 function hasMovieIdInPath(request, response, next) {
