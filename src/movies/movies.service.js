@@ -5,7 +5,7 @@ async function list(is_showing) {
   return knex
     .from(MOVIES_TABLE)
     .select(
-      "movies.movie_id as id",
+      "movies.movie_id as movie_id",
       "title",
       "runtime_in_minutes",
       "rating",
