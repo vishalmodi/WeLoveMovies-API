@@ -21,7 +21,7 @@ async function list(movie_id) {
     .join("critics as c", "c.critic_id", "r.critic_id")
     .select("r.*", "c.*")
     .where({ "r.movie_id": movie_id })
-    .then((reviews) => reviews.map((review) => addCritic(review)));
+    .then((reviews) => Promise.all(reviews.map((review) => addCritic(review))));
 }
 
 async function read(review_id) {
