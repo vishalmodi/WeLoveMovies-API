@@ -18,7 +18,8 @@ async function read(request, res) {
 
 async function list(req, res) {
   const { is_showing } = req.query;
-  const data = await service.list(is_showing);
+  const is_showing_flag = is_showing === 'true' ? true : false;
+  const data = await service.list(is_showing_flag);
   res.json({ data });
 }
 
